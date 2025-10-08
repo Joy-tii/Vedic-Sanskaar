@@ -55,25 +55,49 @@ export function Footer() {
         </div>
       </div>
     </div>
-    <div className="flex flex-col items-center border-t border-[#987A3D] pt-8 pb-12 md:flex-row-reverse md:justify-between md:pt-6">
-      <form className="flex w-full justify-center md:w-auto">
-        <TextField
-          type="email"
-          aria-label="Email address"
-          placeholder="ईमेल पता"
-          autoComplete="email"
-          required
-          className="w-60 min-w-0 shrink text-[#834C13]"
-        />
-        <Button type="submit" color="amber" className="ml-4 flex-none">
-          <span className="hidden lg:inline">न्यूज़लेटर ज्वॉइन करें</span>
-          <span className="lg:hidden">ज्वॉइन करें</span>
-        </Button>
-      </form>
-      <p className="mt-6 text-sm text-[#987A3D] md:mt-0">
-        &copy; {new Date().getFullYear()} सभी अधिकार सुरक्षित।
-      </p>
-    </div>
+   <div
+  className="flex flex-col items-center border-t border-[#987A3D] pt-8 pb-12 md:flex-row-reverse md:justify-between md:pt-6"
+>
+  <form className="flex w-full justify-center md:w-auto">
+    <TextField
+      type="email"
+      aria-label="Email address"
+      placeholder="ईमेल पता"
+      autoComplete="email"
+      required
+      className="w-60 min-w-0 shrink"
+      style={{
+        backgroundColor: "#fff",
+        color: "#834C13",
+        border: "1px solid #987A3D",
+        padding: "0.5rem 0.75rem",
+        borderRadius: "0.5rem",
+      }}
+    />
+
+    <Button
+      type="submit"
+      color="amber"
+      className="ml-4 flex-none"
+      style={{
+        backgroundColor: "#fff",
+        color: "#834C13",
+        border: "1px solid #987A3D",
+        padding: "0.5rem 1rem",
+        borderRadius: "0.5rem",
+        fontWeight: "600",
+      }}
+    >
+      <span className="hidden lg:inline">न्यूज़लेटर ज्वॉइन करें</span>
+      <span className="lg:hidden">ज्वॉइन करें</span>
+    </Button>
+  </form>
+
+  <p className="mt-6 text-sm text-[#987A3D] md:mt-0">
+    &copy; {new Date().getFullYear()} सभी अधिकार सुरक्षित।
+  </p>
+</div>
+
   </Container>
 </footer>
 

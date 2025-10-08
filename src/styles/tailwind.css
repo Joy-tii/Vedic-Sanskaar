@@ -41,14 +41,14 @@
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
 
-  --color-gray-50: oklch(0.95 0.12 90);   /* cream light */
+  --color-gray-50:#F39A43 ;   /* cream light */
 --color-gray-100: oklch(0.90 0.10 90);  /* gold light */
 --color-gray-200: oklch(0.85 0.09 80);
 --color-gray-300: oklch(0.75 0.08 70);
---color-gray-400: #F39A43;  /* REAL vedic sanskaar orange */
+--color-gray-400: oklch(0.95 0.12 90);  /* REAL vedic sanskaar orange */
 --color-gray-500: oklch(0.55 0.07 50);
 --color-gray-600: oklch(0.45 0.06 45);
---color-gray-700: oklch(0.35 0.055 40);
+  --color-gray-700: #fff;           /* replaced deep brown with white for backgrounds */
 --color-gray-800: oklch(0.25 0.05 35);
 --color-gray-900: oklch(0.15 0.04 25);
 --color-gray-950: oklch(0.10 0.03 20);

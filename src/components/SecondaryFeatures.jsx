@@ -197,15 +197,15 @@ export function SecondaryFeatures() {
     >
       <Container>
         <div className="mx-auto max-w-2xl sm:text-center">
-  <h2 className="text-3xl font-medium tracking-tight text-[#2D1F12]">
-    अब समय है अपने संस्कारों का पोर्टफोलियो बनाने का
-  </h2>
-  <p className="mt-2 text-lg text-[#834C13]">
-    पारंपरिक सांस्कृतिक मूल्य और वेदों की अमूल्य विरासत के साथ,
-    अपने जीवन को समृद्ध बनाएं। वेदिक संस्कार प्लेटफॉर्म के साथ,
-    आपके धार्मिक और सामाजिक संस्कारों की यात्रा कभी भी देरी नहीं करती।
-  </p>
-</div>
+          <h2 className="text-3xl font-medium tracking-tight text-[#2D1F12]">
+            अब समय है अपने संस्कारों का पोर्टफोलियो बनाने का
+          </h2>
+          <p className="mt-2 text-lg text-[#834C13]">
+            पारंपरिक सांस्कृतिक मूल्य और वेदों की अमूल्य विरासत के साथ,
+            अपने जीवन को समृद्ध बनाएं। वेदिक संस्कार प्लेटफॉर्म के साथ,
+            आपके धार्मिक और सामाजिक संस्कारों की यात्रा कभी भी देरी नहीं करती।
+          </p>
+        </div>
 
         <ul
           role="list"
@@ -214,13 +214,13 @@ export function SecondaryFeatures() {
           {features.map((feature) => (
             <li
               key={feature.name}
-              className="rounded-2xl border border-gray-200 p-8"
+              className="rounded-2xl border border-[#FDD2A1] bg-white p-8"
             >
-              <feature.icon className="h-8 w-8" />
-              <h3 className="mt-6 font-semibold text-gray-900">
+              <feature.icon className="h-8 w-8 text-[#F39A43]" />
+              <h3 className="mt-6 font-semibold text-[#2D1F12]">
                 {feature.name}
               </h3>
-              <p className="mt-2 text-gray-700">{feature.description}</p>
+              <p className="mt-2 text-[#834C13]">{feature.description}</p>
             </li>
           ))}
         </ul>

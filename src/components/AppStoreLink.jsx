@@ -7,10 +7,10 @@ export function AppStoreLink({ color = 'black' }) {
       href="#"
       aria-label="Download on the App Store"
       className={clsx(
-        'rounded-lg transition-colors',
+        'rounded-lg transition-colors px-4 py-2 inline-block',
         color === 'black'
-          ? 'bg-[#834C13] text-white hover:bg-gray-900'
-          : 'bg-white text-gray-900 hover:bg-gray-50',
+          ? 'bg-white text-[#F39A43] hover:bg-[#834C13]'  // Vedik orange bg with dark hover
+          : 'bg-[#F39A43] text-white hover:bg-[#834C13]'   // white bg with orange text and light hover
       )}
     >
       <svg viewBox="0 0 120 40" aria-hidden="true" className="h-10">

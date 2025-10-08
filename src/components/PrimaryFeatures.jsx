@@ -398,43 +398,49 @@ function FeaturesDesktop() {
       vertical
     >
       <TabList className="relative z-10 order-last col-span-6 space-y-6">
-        {features.map((feature, featureIndex) => (
-          <div
-            key={feature.name}
-            className="relative rounded-2xl transition-colors hover:bg-gray-800/30"
-          >
-            {featureIndex === selectedIndex && (
-              <motion.div
-                layoutId="activeBackground"
-                className="absolute inset-0 bg-gray-800"
-                initial={{ borderRadius: 16 }}
-              />
-            )}
-            <div className="relative z-10 p-8">
-              <feature.icon className="h-8 w-8" />
-              <h3 className="mt-6 text-lg font-semibold text-white">
-                <Tab className="text-left data-selected:not-data-focus:outline-hidden">
-                  <span className="absolute inset-0 rounded-2xl" />
-                  {feature.name}
-                </Tab>
-              </h3>
-              <p className="mt-2 text-sm text-gray-400">
-                {feature.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </TabList>
+  {features.map((feature, featureIndex) => {
+    const isSelected = featureIndex === selectedIndex
+    return (
+      <div
+        key={feature.name}
+        className={clsx(
+          'relative rounded-2xl transition-colors',
+          isSelected
+            ? 'bg-[#FDD2A1]' // selected card background
+            : 'bg-[#FFE8BA] hover:bg-[#FDD2A1]/40' // light orange background with hover effect
+        )}
+      >
+        {isSelected && (
+          <motion.div
+            layoutId="activeBackground"
+            className="absolute inset-0 bg-[#FDD2A1]"
+            initial={{ borderRadius: 16 }}
+          />
+        )}
+        <div className="relative z-10 p-8">
+          <feature.icon className="h-8 w-8 text-[#F39A43]" />
+          <h3 className="mt-6 text-lg font-semibold text-[#834C13]">
+            <Tab className="text-left data-selected:not-data-focus:outline-hidden">
+              <span className="absolute inset-0 rounded-2xl" />
+              {feature.name}
+            </Tab>
+          </h3>
+          <p className="mt-2 text-sm text-[#A57C23]">
+            {feature.description}
+          </p>
+        </div>
+      </div>
+    )
+  })}
+</TabList>
+
       <div className="relative col-span-6">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <CircleBackground color="#13B5C8" className="animate-spin-slower" />
+          <CircleBackground color="#F39A43" className="animate-spin-slower" />
         </div>
         <PhoneFrame className="z-10 mx-auto w-full max-w-[366px]">
           <TabPanels as={Fragment}>
-            <AnimatePresence
-              initial={false}
-              custom={{ isForwards, changeCount }}
-            >
+            <AnimatePresence initial={false} custom={{ isForwards, changeCount }}>
               {features.map((feature, featureIndex) =>
                 selectedIndex === featureIndex ? (
                   <TabPanel
@@ -442,10 +448,7 @@ function FeaturesDesktop() {
                     key={feature.name + changeCount}
                     className="col-start-1 row-start-1 flex focus:outline-offset-32 data-selected:not-data-focus:outline-hidden"
                   >
-                    <feature.screen
-                      animated
-                      custom={{ isForwards, changeCount }}
-                    />
+                    <feature.screen animated custom={{ isForwards, changeCount }} />
                   </TabPanel>
                 ) : null,
               )}
@@ -456,6 +459,7 @@ function FeaturesDesktop() {
     </TabGroup>
   )
 }
+
 
 function FeaturesMobile() {
   let [activeIndex, setActiveIndex] = useState(0)
@@ -505,22 +509,22 @@ function FeaturesMobile() {
             }}
             className="w-full flex-none snap-center px-4 sm:px-6"
           >
-            <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6">
+            <div className="relative transform overflow-hidden rounded-2xl bg-[#FFF7EA] px-5 py-6"> {/* cream background */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <CircleBackground
-                  color="#13B5C8"
+                  color="#F39A43"
                   className={featureIndex % 2 === 1 ? 'rotate-180' : undefined}
                 />
               </div>
               <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
                 <feature.screen />
               </PhoneFrame>
-              <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur-sm sm:p-10">
-                <feature.icon className="h-8 w-8" />
-                <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
+              <div className="absolute inset-x-0 bottom-0 bg-[#F39A43]/10 p-6 backdrop-blur-sm sm:p-10">
+                <feature.icon className="h-8 w-8 text-[#F39A43]" />
+                <h3 className="mt-6 text-sm font-semibold text-[#834C13] sm:text-lg">
                   {feature.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-400">
+                <p className="mt-2 text-sm text-[#A57C23]">
                   {feature.description}
                 </p>
               </div>
@@ -535,7 +539,7 @@ function FeaturesMobile() {
             key={featureIndex}
             className={clsx(
               'relative h-0.5 w-4 rounded-full',
-              featureIndex === activeIndex ? 'bg-gray-300' : 'bg-gray-500',
+              featureIndex === activeIndex ? 'bg-[#F39A43]' : 'bg-[#C6A15A]',
             )}
             aria-label={`Go to slide ${featureIndex + 1}`}
             onClick={() => {
@@ -558,14 +562,16 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features of Vedik Sanskaar digital platform"
-      className="bg-[#2D1F12] py-20 sm:py-32" // dark brown background for theme
+      className="bg-white py-20 sm:py-32" // white background instead of dark brown
     >
       <Container>
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl text-white">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl text-[#834C13]">
+          {/* Dark orange/brown text color */}
           <h2 className="text-3xl font-medium tracking-tight">
             Vedik Sanskaar: Sanatan Sanskriti ki digital sevaen
           </h2>
-          <p className="mt-2 text-lg text-[#FDD2A1]">
+          <p className="mt-2 text-lg text-[#F39A43]">
+            {/* Vedik orange for highlighted text */}
             Ek aisa digital platform jo apko parivar, ved, sanskar, aur dharmik sevaon se jude rakhata hai,
             jahan par vidwan pandit, jyotish aur mandir seva aapke haath me ho ghar baithe.
           </p>

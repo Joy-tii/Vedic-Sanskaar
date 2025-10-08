@@ -93,7 +93,7 @@ function PlayIcon(props) {
       <circle cx="12" cy="12" r="11.5" stroke="#834C13" /> {/* Vedik dark brown stroke */}
       <path
         d="M9.5 14.382V9.618a.5.5 0 0 1 .724-.447l4.764 2.382a.5.5 0 0 1 0 .894l-4.764 2.382a.5.5 0 0 1-.724-.447Z"
-        fill="#F39A43"   // Vedik orange fill
+        fill="#fff"   // Vedik orange fill
         stroke="#F39A43" // Vedik orange stroke
       />
     </svg>

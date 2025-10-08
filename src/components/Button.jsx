@@ -3,35 +3,38 @@ import clsx from 'clsx'
 
 const baseStyles = {
   solid:
-    'inline-flex justify-center rounded-lg py-2 px-3 text-sm font-semibold transition-colors',
+    'inline-flex justify-center items-center rounded-full py-2.5 px-6 text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2',
   outline:
-    'inline-flex justify-center rounded-lg border py-[calc(--spacing(2)-1px)] px-[calc(--spacing(3)-1px)] text-sm transition-colors',
+    'inline-flex justify-center items-center rounded-full border-2 py-2.5 px-6 text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2',
 }
 
 const variantStyles = {
   solid: {
-    cyan: 'bg-[#F39A43] text-[#FDD2A1] hover:bg-[#C67117] active:bg-[#A55F12]',
-    gray: 'bg-[#2D1F12] text-[#FDD2A1] hover:bg-[#4B321C] active:bg-[#3B260F]',
-    amber: 'bg-[#C6A15A] text-[#2D1F12] hover:bg-[#A57C23] active:bg-[#846519]',
+    cream:
+      'bg-[#fff] text-[#A55F12] hover:bg-[#FDD2A1] hover:text-[#703C0D] active:bg-[#FBC17D] focus:ring-[#FDD2A1]/50',
+    gold:
+      'bg-[#C6A15A] text-[#2D1F12] hover:bg-[#B08943] active:bg-[#9C7A36] focus:ring-[#C6A15A]/50',
+    dark:
+      'bg-[#2D1F12] text-[#FDD2A1] hover:bg-[#4B321C] active:bg-[#3B260F] focus:ring-[#C6A15A]/40',
   },
   outline: {
-    gray: 'border-[#987A3D] text-[#834C13] hover:border-[#C6A15A] active:bg-[#FDD2A1] active:text-[#834C13]/80',
+    cream:
+      'border-[#fff] text-[#fff] hover:bg-[#fff] hover:text-[#A55F12] active:bg-[#FDD2A1] focus:ring-[#fff]/30',
+    gold:
+      'border-[#C6A15A] text-[#C6A15A] hover:bg-[#C6A15A] hover:text-[#2D1F12] active:bg-[#B08943] focus:ring-[#C6A15A]/40',
+    dark:
+      'border-[#2D1F12] text-[#2D1F12] hover:bg-[#2D1F12] hover:text-[#FDD2A1] active:bg-[#4B321C] focus:ring-[#2D1F12]/30',
   },
 }
 
-
 export function Button({ className, ...props }) {
   props.variant ??= 'solid'
-  props.color ??= 'gray'
+  props.color ??= 'cream'
 
   className = clsx(
     baseStyles[props.variant],
-    props.variant === 'outline'
-      ? variantStyles.outline[props.color]
-      : props.variant === 'solid'
-        ? variantStyles.solid[props.color]
-        : undefined,
-    className,
+    variantStyles[props.variant][props.color],
+    className
   )
 
   return typeof props.href === 'undefined' ? (
@@ -40,3 +43,4 @@ export function Button({ className, ...props }) {
     <Link className={className} {...props} />
   )
 }
+
