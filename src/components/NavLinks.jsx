@@ -9,17 +9,17 @@ export function NavLinks() {
   let timeoutRef = useRef(null)
 
   const links = [
-    ['मूलधारा संस्कार', '/#features'],   // Core sacraments and rituals
-    ['संस्कृति समीक्षा', '/#reviews'],    // Cultural reviews/testimonials
-    ['सेवाएं व मूल्य', '/#pricing'],      // Services and pricing
-    ['प्रश्नोत्तर', '/#faqs'],             // FAQs on vedic practices
+    ['मूलधारा संस्कार', '/#features'],
+    ['संस्कृति समीक्षा', '/#reviews'],
+    ['सेवाएं व मूल्य', '/#pricing'],
+    ['प्रश्नोत्तर', '/#faqs'],
   ]
 
   return links.map(([label, href], index) => (
     <Link
       key={label}
       href={href}
-      className="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
+      className="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-md font-bold text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
       onMouseEnter={() => {
         if (timeoutRef.current) {
           window.clearTimeout(timeoutRef.current)
