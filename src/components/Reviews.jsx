@@ -207,15 +207,14 @@ export function Reviews() {
       className="pt-20 pb-16 sm:pt-32 sm:pb-24"
     >
       <Container>
-        <h2
-          id="reviews-title"
-          className="text-3xl font-medium tracking-tight text-gray-900 sm:text-center"
-        >
-          Everyone is changing their life with Pocket.
-        </h2>
-        <p className="mt-2 text-lg text-gray-600 sm:text-center">
-          Thousands of people have doubled their net-worth in the last 30 days.
-        </p>
+       <h2
+id="reviews-title" className="text-3xl font-medium tracking-tight text-gray-900 sm:text-center"
+> जीवन में वैदिक संस्कार अपनाते हुए सबकी दिशा बदल रही है।
+</h2>
+<p className="mt-2 text-lg text-gray-600 sm:text-center">
+ वैदिक आचार्यों के मार्गदर्शन में हजारों लोगों ने अपने जीवन में उन्नति और समृद्धि पाई है।
+</p>
+
         <ReviewGrid />
       </Container>
     </section>
