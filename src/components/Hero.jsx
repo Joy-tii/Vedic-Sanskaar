@@ -21,6 +21,7 @@ function BackgroundIllustration(props) {
 
   return (
     <div {...props}>
+      {/* Outer ring */}
       <svg
         viewBox="0 0 1026 1026"
         fill="none"
@@ -29,8 +30,8 @@ function BackgroundIllustration(props) {
       >
         <path
           d="M1025 513c0 282.77-229.23 512-512 512S1 795.77 1 513 230.23 1 513 1s512 229.23 512 512Z"
-          stroke="#834C13"  // Vedik dark brown
-          strokeOpacity="0.4"
+          stroke="#FFFFFF"
+          strokeOpacity="0.3"
         />
         <path
           d="M513 1025C230.23 1025 1 795.77 1 513"
@@ -46,12 +47,13 @@ function BackgroundIllustration(props) {
             y2="1025"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#F39A43" />   {/* Vedik orange */}
-            <stop offset="1" stopColor="#F39A43" stopOpacity="0" />
+            <stop stopColor="#FFFFFF" />
+            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
 
+      {/* Inner ring */}
       <svg
         viewBox="0 0 1026 1026"
         fill="none"
@@ -60,8 +62,8 @@ function BackgroundIllustration(props) {
       >
         <path
           d="M913 513c0 220.914-179.086 400-400 400S113 733.914 113 513s179.086-400 400-400 400 179.086 400 400Z"
-          stroke="#FDD2A1"  // Vedik light gold
-          strokeOpacity="0.35"
+          stroke="#FFFFFF"
+          strokeOpacity="0.25"
         />
         <path
           d="M913 513c0 220.914-179.086 400-400 400"
@@ -77,8 +79,8 @@ function BackgroundIllustration(props) {
             y2="913"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#F39A43" />
-            <stop offset="1" stopColor="#F39A43" stopOpacity="0" />
+            <stop stopColor="#FFFFFF" />
+            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>

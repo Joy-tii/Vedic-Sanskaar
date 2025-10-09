@@ -1,5 +1,6 @@
+import Image from 'next/image';
 
-import vedicLogo from '@/images/vediclogo.jpg';
+import vedicLogo from '@/images/vedic_logo-removebg.png'; // or relative path
 
 export function Logomark(props) {
   return (
@@ -13,15 +14,14 @@ export function Logomark(props) {
   )
 }
 
-export function Logo(props) {
+export function Logo() {
   return (
-    <img
+    <Image
       src={vedicLogo}
       alt="Company Logo"
-      width="106"
-      height="40"
+      width={106}
+      height={40}
       className="object-contain"
-      {...props}
     />
   );
 }
