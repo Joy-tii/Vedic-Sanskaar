@@ -99,81 +99,70 @@ function Plan({
   logomarkClassName,
   featured = false,
 }) {
+  // choose bg and text colors dynamically
+  const cardBg = featured 
+    ? "bg-[#F39A43]" 
+    : "bg-[#FFE0B2]"; // featured = rich dark orange, else pale orange-cream
+  const titleColor = featured ? "text-white" : "text-[#834C13]";
+  const priceColor = featured ? "text-white" : "text-[#2D1F12]";
+  const descColor = featured ? "text-[#FFF7EA]/80" : "text-[#A57C23]";
+  const listDivider = featured ? "divide-[#FFF7EA]/30" : "divide-[#F39A43]/20";
+  const listText = featured ? "text-[#FFF7EA]" : "text-[#834C13]";
+  const checkIcon = featured ? "text-white" : "text-[#F39A43]";
+ const buttonBg = featured
+  ? "!bg-white !text-[#F39A43] hover:!bg-[#FFF7EA] !border !border-white shadow-md"
+  : "!bg-[#C67117] !text-white hover:!bg-[#A3560F] !border !border-transparent shadow-md";
+
+
   return (
-    <section
-      className={clsx(
-        'flex flex-col overflow-hidden rounded-3xl p-6 shadow-lg',
-        featured ? 'order-first bg-[#2D1F12] lg:order-0' : 'bg-[#FDD2A1]',
-      )}
-    >
-      <h3
-        className={clsx(
-          'flex items-center text-sm font-semibold',
-          featured ? 'text-[#FDD2A1]' : 'text-[#834C13]',
-        )}
-      >
+    <section className={clsx(
+      'flex flex-col overflow-hidden rounded-3xl p-6 shadow-lg',
+      cardBg
+    )}>
+      <h3 className={clsx(
+        'flex items-center text-sm font-semibold',
+        titleColor
+      )}>
         <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
         <span className="ml-4">{name}</span>
       </h3>
-      <p
-        className={clsx(
-          'relative mt-5 flex text-3xl tracking-tight',
-          featured ? 'text-[#FDD2A1]' : 'text-[#2D1F12]',
-        )}
-      >
+      <p className={clsx(
+        'relative mt-5 flex text-3xl tracking-tight',
+        priceColor
+      )}>
         {price.Monthly === price.Annually ? (
           price.Monthly
         ) : (
           <>
             <span
               aria-hidden={activePeriod === 'Annually'}
-              className={clsx(
-                'transition duration-300',
-                activePeriod === 'Annually' &&
-                  'pointer-events-none translate-x-6 opacity-0 select-none',
-              )}
+              className={clsx('transition duration-300', activePeriod === 'Annually' && 'pointer-events-none translate-x-6 opacity-0 select-none')}
             >
               {price.Monthly}
             </span>
             <span
               aria-hidden={activePeriod === 'Monthly'}
-              className={clsx(
-                'absolute top-0 left-0 transition duration-300',
-                activePeriod === 'Monthly' &&
-                  'pointer-events-none -translate-x-6 opacity-0 select-none',
-              )}
+              className={clsx('absolute top-0 left-0 transition duration-300', activePeriod === 'Monthly' && 'pointer-events-none -translate-x-6 opacity-0 select-none')}
             >
               {price.Annually}
             </span>
           </>
         )}
       </p>
-      <p
-        className={clsx(
-          'mt-3 text-sm',
-          featured ? 'text-[#C6A15A]' : 'text-[#987A3D]',
-        )}
-      >
+      <p className={clsx(
+        'mt-3 text-sm',
+        descColor
+      )}>
         {description}
       </p>
       <div className="order-last mt-6">
         <ul
           role="list"
-          className={clsx(
-            '-my-2 divide-y text-sm',
-            featured
-              ? 'divide-[#C6A15A] text-[#FDD2A1]'
-              : 'divide-[#987A3D] text-[#834C13]',
-          )}
+          className={clsx('-my-2 divide-y text-sm', listDivider, listText)}
         >
           {features.map((feature) => (
             <li key={feature} className="flex py-2">
-              <CheckIcon
-                className={clsx(
-                  'h-6 w-6 flex-none',
-                  featured ? 'text-[#FDD2A1]' : 'text-[#F39A43]',
-                )}
-              />
+              <CheckIcon className={clsx('h-6 w-6 flex-none', checkIcon)} />
               <span className="ml-4">{feature}</span>
             </li>
           ))}
@@ -181,18 +170,17 @@ function Plan({
       </div>
       <Button
   href={button.href}
-  color={featured ? 'amber' : 'amber'}
   className={clsx(
-    "mt-6",
-    featured ? "bg-[#F39A43] text-white hover:bg-[#C67117]" : "bg-[#C6A15A] text-[#2D1F12] hover:bg-[#A57C23]"
+    "mt-6 font-semibold transition-transform duration-200 hover:scale-105",
+    buttonBg
   )}
-  aria-label={`Get started with the ${name} plan for ${price.Monthly}`}
->
-  {button.label}
-</Button>
 
+        aria-label={`Get started with the ${name} plan for ${price.Monthly}`}
+      >
+        {button.label}
+      </Button>
     </section>
-  )
+  );
 }
 
 export function Pricing() {
