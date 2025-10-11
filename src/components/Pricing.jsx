@@ -24,7 +24,7 @@ const plans = [
       'हर दिन एक सुझाव',
       'महीने में ₹1,500 तक निवेश',
     ],
-    logomarkClassName: 'fill-[#C6A15A]',
+    logomarkClassName: 'fill-[#F4B400]', // Warm yellow from theme
   },
   {
     name: 'निवेशक',
@@ -42,7 +42,7 @@ const plans = [
       'महीने में ₹15,000 तक निवेश',
       'मूल ट्रांजेक्शन गुप्तता',
     ],
-    logomarkClassName: 'fill-[#987A3D]',
+    logomarkClassName: 'fill-[#A57C23]', // Darker yellow/brown from theme
   },
   {
     name: 'विशिष्ट सदस्य',
@@ -61,7 +61,7 @@ const plans = [
       'उन्नत ट्रांजेक्शन गुप्तता',
       'स्वचालित लाभकर कटौती',
     ],
-    logomarkClassName: 'fill-[#F39A43]',
+    logomarkClassName: 'fill-[#F4B400]', // Warm yellow for featured icon for contrast
   },
 ]
 
@@ -96,9 +96,8 @@ function Plan({
   logomarkClassName,
   featured = false,
 }) {
-  // Determine if card should have white background (first two cards)
   const isWhiteBg = name === 'प्रारंभिक' || name === 'निवेशक'
-  const cardBg = !featured && isWhiteBg ? 'bg-white' : featured ? 'bg-[#F39A43]' : 'bg-[#FFE0B2]'
+  const cardBg = !featured && isWhiteBg ? 'bg-[#FFFFFF]' : featured ? 'bg-[#F39A43]' : 'bg-[#FDF7F2]'
   const titleColor = featured ? 'text-white' : 'text-[#1E293B]'
   const priceColor = featured ? 'text-white' : 'text-[#1E293B]'
   const descColor = featured ? 'text-[#FFF7EA]/80' : 'text-[#64748B]'
@@ -109,7 +108,6 @@ function Plan({
     ? '!bg-white !text-[#F39A43] hover:!bg-[#FFF7EA] !border !border-white shadow-md'
     : '!bg-[#4285F4] !text-white hover:!bg-[#2D59C3] !border !border-transparent shadow-md'
 
-  // Fix icon fill color for featured card for visibility
   const iconFillClass = featured ? 'fill-white' : logomarkClassName
 
   return (
@@ -164,13 +162,13 @@ export function Pricing() {
   const [activePeriod, setActivePeriod] = useState('Monthly')
 
   return (
-    <section id="pricing" aria-labelledby="pricing-title" className="border-t border-[#E2E8F0] bg-[#FDF7F2] py-20 sm:py-32">
+    <section id="pricing" aria-labelledby="pricing-title" className="border-t border-[#E2E8F0] bg-[#4285F4] py-20 sm:py-32">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 id="pricing-title" className="text-3xl font-medium tracking-tight text-[#1E293B]">
+          <h2 id="pricing-title" className="text-3xl font-medium tracking-tight text-white">
             पारंपरिक मूल्य निर्धारण, कोई प्रबंधन शुल्क नहीं।
           </h2>
-          <p className="mt-2 text-lg text-[#64748B]">
+          <p className="mt-2 text-lg text-[#FFF7EA]">
             चाहे आप अकेले निवेशक हों या बड़ी संस्था, हमारे पास आपके लिए उपयुक्त योजना है।
           </p>
         </div>

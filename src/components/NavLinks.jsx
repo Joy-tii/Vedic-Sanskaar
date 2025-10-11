@@ -23,8 +23,8 @@ export function NavLinks() {
       className={`
         relative -mx-3 -my-2 rounded-lg px-3 py-2 
         text-[15px] font-semibold tracking-wide
-        text-[#1E293B] transition-all duration-300 
-        hover:text-[#4285F4] focus:text-[#4285F4]
+        text-[#1E293B] transition-colors duration-300 
+        hover:text-[#F4B400] focus:text-[#F4B400] outline-none
       `}
       onMouseEnter={() => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -39,20 +39,21 @@ export function NavLinks() {
           <motion.span
             className="
               absolute inset-0 rounded-lg
-              bg-[#F4B400]/15 ring-1 ring-[#F4B400]/30
-              backdrop-blur-[1px]
+              bg-[#F4B400]/25 ring-1 ring-[#F4B400]/50
+              backdrop-blur-[2px]
+              pointer-events-none
             "
             layoutId="hoverBackground"
-            initial={{ opacity: 0, y: 2 }}
+            initial={{ opacity: 0, y: 3 }}
             animate={{
               opacity: 1,
               y: 0,
-              transition: { duration: 0.2, ease: 'easeOut' },
+              transition: { duration: 0.25, ease: 'easeOut' },
             }}
             exit={{
               opacity: 0,
-              y: -2,
-              transition: { duration: 0.15, ease: 'easeIn' },
+              y: -3,
+              transition: { duration: 0.2, ease: 'easeIn' },
             }}
           />
         )}

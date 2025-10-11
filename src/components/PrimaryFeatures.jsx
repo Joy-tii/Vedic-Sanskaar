@@ -553,14 +553,15 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features of Vedik Sanskaar digital platform"
-      className="bg-[#FDF7F2] py-20 sm:py-32"
+      className="bg-[#4285F4] py-20 sm:py-32" // Background changed to bright sky blue
     >
       <Container>
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl text-[#1E293B]">
-          <h2 className="text-3xl font-medium tracking-tight text-[#4285F4]">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl text-white"> {/* Text color set to white */}
+          <h2 className="text-3xl font-medium tracking-tight">
             Vedik Sanskaar: Sanatan Sanskriti ki digital sevaen
           </h2>
-          <p className="mt-2 text-lg text-[#F4B400]">
+          {/* Description text changed to light warm yellow for contrast */}
+          <p className="mt-2 text-lg text-white">
             Ek aisa digital platform jo apko parivar, ved, sanskar, aur dharmik sevaon se jude rakhata hai,
             jahan par vidwan pandit, jyotish aur mandir seva aapke haath me ho ghar baithe.
           </p>

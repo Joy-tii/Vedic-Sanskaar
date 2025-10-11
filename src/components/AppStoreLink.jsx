@@ -9,8 +9,8 @@ export function AppStoreLink({ color = 'black' }) {
       className={clsx(
         'rounded-lg transition-colors px-4 py-2 inline-block',
         color === 'black'
-          ? 'bg-[#FFFFFF] text-[#F4B400] hover:bg-[#1E293B]'  // white bg, warm yellow text, dark slate hover
-          : 'bg-[#F4B400] text-[#FFFFFF] hover:bg-[#1E293B]'  // warm yellow bg, white text, dark slate hover
+          ? 'bg-[#4285F4] text-[#FFFFFF] hover:bg-[#F4B400]' // Initial bg blue, white text, dark slate hover
+          : 'bg-[#F4B400] text-[#1E293B] hover:bg-[#1E293B]' // Warm yellow bg, dark slate text, dark slate hover
       )}
     >
       <svg viewBox="0 0 120 40" aria-hidden="true" className="h-10">
