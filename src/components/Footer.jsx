@@ -42,23 +42,22 @@ export function Footer() {
           </div>
 
           {/* 🔸 QR Section */}
-          <div className="group relative -mx-4 flex items-center self-stretch p-4 sm:self-auto sm:rounded-2xl lg:mx-0 lg:self-auto lg:p-6 transition-colors bg-white/10 hover:bg-[#F4B400]/20 shadow-md">
-            <div className="relative flex h-24 w-24 flex-none items-center justify-center">
-              <QrCodeBorder className="absolute inset-0 h-full w-full stroke-[#F4B400] transition-colors group-hover:stroke-white" />
-              <Image src={qrCode} alt="QR Code" unoptimized />
-            </div>
-            <div className="ml-8 lg:w-64">
-              <p className="text-base font-semibold text-white">
-                <Link href="#">
-                  <span className="absolute inset-0 sm:rounded-2xl" />
-                  ऐप डाउनलोड करें
-                </Link>
-              </p>
-              <p className="mt-1 text-sm text-[#FFF7EA]">
-                QR कोड स्कैन करें और ऐप स्टोर से ऐप प्राप्त करें।
-              </p>
-            </div>
-          </div>
+          <div className="group relative -mx-4 flex items-center self-stretch p-4 sm:self-auto sm:rounded-2xl lg:mx-0 lg:self-auto lg:p-6 transition-colors bg-[#F4B400] hover:bg-[#F4B400]/20 shadow-md">
+  <div className="relative flex h-24 w-24 flex-none items-center justify-center">
+    <QrCodeBorder className="absolute inset-0 h-full w-full stroke-white transition-colors group-hover:stroke-[#1E293B]" />
+    <Image src={qrCode} alt="QR Code" unoptimized />
+  </div>
+  <div className="ml-8 lg:w-64">
+    <p className="text-base font-semibold text-white">
+      <Link href="#">
+        <span className="absolute inset-0 sm:rounded-2xl" />
+        ऐप डाउनलोड करें
+      </Link>
+    </p>
+    <p className="mt-1 text-sm text-[#FFF7EA]">QR कोड स्कैन करें और ऐप स्टोर से ऐप प्राप्त करें।</p>
+  </div>
+</div>
+
         </div>
 
         {/* 🔸 Newsletter Section */}
