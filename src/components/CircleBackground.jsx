@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-export function CircleBackground({ color, ...props }) {
+export function CircleBackground({ color = '#F4B400', ...props }) { // Default warm yellow
   let id = useId()
 
   return (

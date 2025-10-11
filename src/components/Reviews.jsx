@@ -61,7 +61,7 @@ function StarRating({ rating }) {
           key={index}
           className={clsx(
             'h-5 w-5',
-            rating > index ? 'fill-[#F39A43]' : 'fill-[#C6A15A]'
+            rating > index ? 'fill-[#F4B400]' : 'fill-[#C6A15A]' // Warm Yellow fill for stars, muted yellow otherwise
           )}
         />
       ))}
@@ -69,32 +69,27 @@ function StarRating({ rating }) {
   )
 }
 
-
 function Review({ title, body, author, rating, className, ...props }) {
   let animationDelay = useMemo(() => {
     let possibleAnimationDelays = ['0s', '0.1s', '0.2s', '0.3s', '0.4s', '0.5s']
-    return possibleAnimationDelays[
-      Math.floor(Math.random() * possibleAnimationDelays.length)
-    ]
+    return possibleAnimationDelays[Math.floor(Math.random() * possibleAnimationDelays.length)]
   }, [])
 
   return (
     <figure
       className={clsx(
-        'animate-fade-in rounded-3xl bg-white p-6 opacity-0 shadow-md shadow-gray-900/5',
+        'animate-fade-in rounded-3xl bg-[#FFFFFF] p-6 opacity-0 shadow-md shadow-[#1E293B]/10', // Surface white bg, subtle dark slate shadow
         className,
       )}
       style={{ animationDelay }}
       {...props}
     >
-      <blockquote className="text-gray-900">
+      <blockquote className="text-[#1E293B]"> {/* Dark Slate primary text */}
         <StarRating rating={rating} />
-        <p className="mt-4 text-lg/6 font-semibold before:content-['“'] after:content-['”']">
-          {title}
-        </p>
-        <p className="mt-3 text-base/7">{body}</p>
+        <p className="mt-4 text-lg/6 font-semibold before:content-['“'] after:content-['”']">{title}</p>
+        <p className="mt-3 text-base/7 text-[#64748B]">{body}</p> {/* Muted Gray Blue for body */}
       </blockquote>
-      <figcaption className="mt-3 text-sm text-gray-600 before:content-['–_']">
+      <figcaption className="mt-3 text-sm text-[#64748B] before:content-['–_']"> {/* Muted Gray Blue for author */}
         {author}
       </figcaption>
     </figure>
@@ -119,9 +114,7 @@ function ReviewColumn({ reviews, className, reviewClassName, msPerPixel = 0 }) {
   let duration = `${columnHeight * msPerPixel}ms`
 
   useEffect(() => {
-    if (!columnRef.current) {
-      return
-    }
+    if (!columnRef.current) return
 
     let resizeObserver = new window.ResizeObserver(() => {
       setColumnHeight(columnRef.current?.offsetHeight ?? 0)
@@ -171,8 +164,7 @@ function ReviewGrid() {
             reviews={[...column1, ...column3.flat(), ...column2]}
             reviewClassName={(reviewIndex) =>
               clsx(
-                reviewIndex >= column1.length + column3[0].length &&
-                  'md:hidden',
+                reviewIndex >= column1.length + column3[0].length && 'md:hidden',
                 reviewIndex >= column1.length && 'lg:hidden',
               )
             }
@@ -181,39 +173,28 @@ function ReviewGrid() {
           <ReviewColumn
             reviews={[...column2, ...column3[1]]}
             className="hidden md:block"
-            reviewClassName={(reviewIndex) =>
-              reviewIndex >= column2.length ? 'lg:hidden' : ''
-            }
+            reviewClassName={(reviewIndex) => (reviewIndex >= column2.length ? 'lg:hidden' : '')}
             msPerPixel={15}
           />
-          <ReviewColumn
-            reviews={column3.flat()}
-            className="hidden lg:block"
-            msPerPixel={10}
-          />
+          <ReviewColumn reviews={column3.flat()} className="hidden lg:block" msPerPixel={10} />
         </>
       )}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-gray-50" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-gray-50" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FDF7F2]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FDF7F2]" />
     </div>
   )
 }
 
 export function Reviews() {
   return (
-    <section
-      id="reviews"
-      aria-labelledby="reviews-title"
-      className="pt-20 pb-16 sm:pt-32 sm:pb-24"
-    >
+    <section id="reviews" aria-labelledby="reviews-title" className="pt-20 pb-16 sm:pt-32 sm:pb-24 bg-[#FDF7F2]">
       <Container>
-       <h2
-id="reviews-title" className="text-3xl font-medium tracking-tight text-gray-900 sm:text-center"
-> जीवन में वैदिक संस्कार अपनाते हुए सबकी दिशा बदल रही है।
-</h2>
-<p className="mt-2 text-lg text-gray-600 sm:text-center">
- वैदिक आचार्यों के मार्गदर्शन में हजारों लोगों ने अपने जीवन में उन्नति और समृद्धि पाई है।
-</p>
+        <h2 id="reviews-title" className="text-3xl font-medium tracking-tight text-[#1E293B] sm:text-center">
+          जीवन में वैदिक संस्कार अपनाते हुए सबकी दिशा बदल रही है।
+        </h2>
+        <p className="mt-2 text-lg text-[#64748B] sm:text-center">
+          वैदिक आचार्यों के मार्गदर्शन में हजारों लोगों ने अपने जीवन में उन्नति और समृद्धि पाई है।
+        </p>
 
         <ReviewGrid />
       </Container>

@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/forms';
 
 @theme {
+  /* Typography scale (unchanged) */
   --text-*: initial;
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
@@ -31,6 +32,7 @@
   --text-9xl: 8rem;
   --text-9xl--line-height: 1;
 
+  /* Animations */
   --animate-fade-in: fade-in 0.5s linear forwards;
   --animate-spin-slow: spin 4s linear infinite;
   --animate-spin-slower: spin 6s linear infinite;
@@ -38,38 +40,61 @@
   --animate-spin-reverse-slow: spin-reverse 4s linear infinite;
   --animate-spin-reverse-slower: spin-reverse 6s linear infinite;
 
+  /* Radius */
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
 
-  --color-gray-50:#F39A43 ;   /* cream light */
---color-gray-100: oklch(0.90 0.10 90);  /* gold light */
---color-gray-200: oklch(0.85 0.09 80);
---color-gray-300: oklch(0.75 0.08 70);
---color-gray-400: oklch(0.95 0.12 90);  /* REAL vedic sanskaar orange */
---color-gray-500: oklch(0.55 0.07 50);
---color-gray-600: oklch(0.45 0.06 45);
+  /* ----------------------------- */
+  /* 🌼 OLD THEME COLORS (Original) */
+  /* ----------------------------- */
+  --color-gray-50:#F39A43;   /* cream light */
+  --color-gray-100: oklch(0.90 0.10 90);  /* gold light */
+  --color-gray-200: oklch(0.85 0.09 80);
+  --color-gray-300: oklch(0.75 0.08 70);
+  --color-gray-400: oklch(0.95 0.12 90);  /* REAL vedic sanskaar orange */
+  --color-gray-500: oklch(0.55 0.07 50);
+  --color-gray-600: oklch(0.45 0.06 45);
   --color-gray-700: #fff;           /* replaced deep brown with white for backgrounds */
---color-gray-800: oklch(0.25 0.05 35);
---color-gray-900: oklch(0.15 0.04 25);
---color-gray-950: oklch(0.10 0.03 20);
+  --color-gray-800: oklch(0.25 0.05 35);
+  --color-gray-900: oklch(0.15 0.04 25);
+  --color-gray-950: oklch(0.10 0.03 20);
 
+  /* ----------------------------- */
+  /* 🎨 NEW COLOR THEME PALETTE (for next design updates) */
+  /* ----------------------------- */
+  --color-primary: #4285F4;        /* Bright Sky Blue - Headers, CTAs */
+  --color-secondary: #F4B400;      /* Warm Yellow - Accents, Highlights */
+  --color-background: #FDF7F2;     /* Soft Beige - Page Background */
+  --color-surface: #FFFFFF;        /* Pure White - Cards, Panels */
+  --color-text-primary: #1E293B;   /* Dark Slate - Main Text */
+  --color-text-secondary: #64748B; /* Muted Gray Blue - Subtext */
+  --color-border: #E2E8F0;         /* Light Gray - Borders & Dividers */
+
+  /* For gray compatibility mapping */
+  --color-new-gray-50: var(--color-background);
+  --color-new-gray-100: var(--color-surface);
+  --color-new-gray-200: var(--color-border);
+  --color-new-gray-300: var(--color-border);
+  --color-new-gray-400: var(--color-text-secondary);
+  --color-new-gray-500: var(--color-text-primary);
+  --color-new-gray-600: var(--color-primary);
+  --color-new-gray-700: var(--color-secondary);
+  --color-new-gray-800: #1E293B;
+  --color-new-gray-900: #0F172A;
+
+  /* ----------------------------- */
 
   --font-sans: var(--font-inter);
-
   --container-2xl: 40rem;
 
+  /* Keyframes */
   @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
+
   @keyframes spin-reverse {
-    to {
-      transform: rotate(-360deg);
-    }
+    to { transform: rotate(-360deg); }
   }
 }
 

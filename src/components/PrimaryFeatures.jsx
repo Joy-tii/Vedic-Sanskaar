@@ -47,21 +47,22 @@ const features = [
     screen: InvestScreen,
   },
 ]
+
 function DeviceUserIcon(props) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
-      <circle cx={16} cy={16} r={16} fill="#FDD2A1" fillOpacity={0.3} />
+      <circle cx={16} cy={16} r={16} fill="#F4B400" fillOpacity={0.3} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M16 23a3 3 0 100-6 3 3 0 000 6zm-1 2a4 4 0 00-4 4v1a2 2 0 002 2h6a2 2 0 002-2v-1a4 4 0 00-4-4h-2z"
-        fill="#834C13"
+        fill="#1E293B"
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M5 4a4 4 0 014-4h14a4 4 0 014 4v24a4.002 4.002 0 01-3.01 3.877c-.535.136-.99-.325-.99-.877s.474-.98.959-1.244A2 2 0 0025 28V4a2 2 0 00-2-2h-1.382a1 1 0 00-.894.553l-.448.894a1 1 0 01-.894.553h-6.764a1 1 0 01-.894-.553l-.448-.894A1 1 0 0010.382 2H9a2 2 0 00-2 2v24a2 2 0 001.041 1.756C8.525 30.02 9 30.448 9 31s-.455 1.013-.99.877A4.002 4.002 0 015 28V4z"
-        fill="#834C13"
+        fill="#1E293B"
       />
     </svg>
   )
@@ -70,16 +71,16 @@ function DeviceUserIcon(props) {
 function DeviceNotificationIcon(props) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
-      <circle cx={16} cy={16} r={16} fill="#FDD2A1" fillOpacity={0.3} />
+      <circle cx={16} cy={16} r={16} fill="#F4B400" fillOpacity={0.3} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M9 0a4 4 0 00-4 4v24a4 4 0 004 4h14a4 4 0 004-4V4a4 4 0 00-4-4H9zm0 2a2 2 0 00-2 2v24a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2h-1.382a1 1 0 00-.894.553l-.448.894a1 1 0 01-.894.553h-6.764a1 1 0 01-.894-.553l-.448-.894A1 1 0 0010.382 2H9z"
-        fill="#834C13"
+        fill="#1E293B"
       />
       <path
         d="M9 8a2 2 0 012-2h10a2 2 0 012 2v2a2 2 0 01-2 2H11a2 2 0 01-2-2V8z"
-        fill="#F39A43"
+        fill="#F4B400"
       />
     </svg>
   )
@@ -99,16 +100,16 @@ function DeviceTouchIcon(props) {
           y2={17}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#834C13" />
-          <stop offset={1} stopColor="#F39A43" stopOpacity={0} />
+          <stop stopColor="#1E293B" />
+          <stop offset={1} stopColor="#F4B400" stopOpacity={0} />
         </linearGradient>
       </defs>
-      <circle cx={16} cy={16} r={16} fill="#FDD2A1" fillOpacity={0.3} />
+      <circle cx={16} cy={16} r={16} fill="#F4B400" fillOpacity={0.3} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M5 4a4 4 0 014-4h14a4 4 0 014 4v13h-2V4a2 2 0 00-2-2h-1.382a1 1 0 00-.894.553l-.448.894a1 1 0 01-.894.553h-6.764a1 1 0 01-.894-.553l-.448-.894A1 1 0 0010.382 2H9a2 2 0 00-2 2v24a2 2 0 002 2h4v2H9a4 4 0 01-4-4V4z"
-        fill="#834C13"
+        fill="#1E293B"
       />
       <path
         d="M7 22c0-4.694 3.5-8 8-8"
@@ -119,12 +120,11 @@ function DeviceTouchIcon(props) {
       />
       <path
         d="M21 20l.217-5.513a1.431 1.431 0 00-2.85-.226L17.5 21.5l-1.51-1.51a2.107 2.107 0 00-2.98 0 .024.024 0 00-.005.024l3.083 9.25A4 4 0 0019.883 32H25a4 4 0 004-4v-5a3 3 0 00-3-3h-5z"
-        fill="#F39A43"
+        fill="#F4B400"
       />
     </svg>
   )
 }
-
 
 const headerAnimation = {
   initial: { opacity: 0, transition: { duration: 0.3 } },
@@ -178,7 +178,7 @@ function InviteScreen(props) {
       <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
         <AppScreen.Title>Invite people</AppScreen.Title>
         <AppScreen.Subtitle>
-          Get tips <span className="text-white">5s sooner</span> for every
+          Get tips <span className="text-[#F4B400]">5s sooner</span> for every
           invite.
         </AppScreen.Subtitle>
       </MotionAppScreenHeader>
@@ -192,14 +192,14 @@ function InviteScreen(props) {
               { label: 'Email address', value: 'awiggin@chase.com' },
             ].map((field) => (
               <div key={field.label}>
-                <div className="text-sm text-gray-500">{field.label}</div>
-                <div className="mt-2 border-b border-gray-200 pb-2 text-sm text-gray-900">
+                <div className="text-sm text-[#64748B]">{field.label}</div>
+                <div className="mt-2 border-b border-[#E2E8F0] pb-2 text-sm text-[#1E293B]">
                   {field.value}
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-lg bg-cyan-500 px-3 py-2 text-center text-sm font-semibold text-white">
+          <div className="mt-6 rounded-lg bg-[#4285F4] px-3 py-2 text-center text-sm font-semibold text-[#FFFFFF] cursor-pointer">
             Invite person
           </div>
         </div>
@@ -218,7 +218,7 @@ function StocksScreen(props) {
       <MotionAppScreenBody
         {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
       >
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-[#E2E8F0]">
           {[
             {
               name: 'Laravel',
@@ -284,19 +284,17 @@ function StocksScreen(props) {
               >
                 <stock.logo className="h-10 w-10" />
               </div>
-              <div className="flex-auto text-sm text-gray-900">
-                {stock.name}
-              </div>
+              <div className="flex-auto text-sm text-[#1E293B]">{stock.name}</div>
               <div className="flex-none text-right">
-                <div className="text-sm font-medium text-gray-900">
+                <div className="text-sm font-medium text-[#1E293B]">
                   {stock.price}
                 </div>
                 <div
                   className={clsx(
                     'text-xs/5',
                     stock.change.startsWith('+')
-                      ? 'text-cyan-500'
-                      : 'text-gray-500',
+                      ? 'text-[#4285F4]'
+                      : 'text-[#64748B]'
                   )}
                 >
                   {stock.change}
@@ -316,7 +314,7 @@ function InvestScreen(props) {
       <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
         <AppScreen.Title>Buy $LA</AppScreen.Title>
         <AppScreen.Subtitle>
-          <span className="text-white">$34.28</span> per share
+          <span className="text-[#FFFFFF]">$34.28</span> per share
         </AppScreen.Subtitle>
       </MotionAppScreenHeader>
       <MotionAppScreenBody
@@ -347,15 +345,13 @@ function InvestScreen(props) {
             ].map((item) => (
               <div
                 key={item.label}
-                className="flex justify-between border-b border-gray-100 pb-4"
+                className="flex justify-between border-b border-[#E2E8F0] pb-4"
               >
-                <div className="text-sm text-gray-500">{item.label}</div>
-                <div className="text-sm font-semibold text-gray-900">
-                  {item.value}
-                </div>
+                <div className="text-sm text-[#64748B]">{item.label}</div>
+                <div className="text-sm font-semibold text-[#1E293B]">{item.value}</div>
               </div>
             ))}
-            <div className="rounded-lg bg-cyan-500 px-3 py-2 text-center text-sm font-semibold text-white">
+            <div className="rounded-lg bg-[#4285F4] px-3 py-2 text-center text-sm font-semibold text-[#FFFFFF] cursor-pointer">
               Buy shares
             </div>
           </div>
@@ -398,45 +394,43 @@ function FeaturesDesktop() {
       vertical
     >
       <TabList className="relative z-10 order-last col-span-6 space-y-6">
-  {features.map((feature, featureIndex) => {
-    const isSelected = featureIndex === selectedIndex
-    return (
-      <div
-        key={feature.name}
-        className={clsx(
-          'relative rounded-2xl transition-colors',
-          isSelected
-            ? 'bg-[#FDD2A1]' // selected card background
-            : 'bg-[#FFE8BA] hover:bg-[#FDD2A1]/40' // light orange background with hover effect
-        )}
-      >
-        {isSelected && (
-          <motion.div
-            layoutId="activeBackground"
-            className="absolute inset-0 bg-[#FDD2A1]"
-            initial={{ borderRadius: 16 }}
-          />
-        )}
-        <div className="relative z-10 p-8">
-          <feature.icon className="h-8 w-8 text-[#F39A43]" />
-          <h3 className="mt-6 text-lg font-semibold text-[#834C13]">
-            <Tab className="text-left data-selected:not-data-focus:outline-hidden">
-              <span className="absolute inset-0 rounded-2xl" />
-              {feature.name}
-            </Tab>
-          </h3>
-          <p className="mt-2 text-sm text-[#A57C23]">
-            {feature.description}
-          </p>
-        </div>
-      </div>
-    )
-  })}
-</TabList>
+        {features.map((feature, featureIndex) => {
+          const isSelected = featureIndex === selectedIndex
+          return (
+            <div
+              key={feature.name}
+              className={clsx(
+                'relative rounded-2xl transition-colors',
+                isSelected
+                  ? 'bg-[#F4B400]' // Warm Yellow selected background
+                  : 'bg-[#FDF7F2] hover:bg-[#F4B400]/40' // Soft Beige background with hover
+              )}
+            >
+              {isSelected && (
+                <motion.div
+                  layoutId="activeBackground"
+                  className="absolute inset-0 bg-[#F4B400]"
+                  initial={{ borderRadius: 16 }}
+                />
+              )}
+              <div className="relative z-10 p-8">
+                <feature.icon className="h-8 w-8 text-[#F4B400]" />
+                <h3 className="mt-6 text-lg font-semibold text-[#1E293B]">
+                  <Tab className="text-left data-selected:not-data-focus:outline-hidden">
+                    <span className="absolute inset-0 rounded-2xl" />
+                    {feature.name}
+                  </Tab>
+                </h3>
+                <p className="mt-2 text-sm text-[#64748B]">{feature.description}</p>
+              </div>
+            </div>
+          )
+        })}
+      </TabList>
 
       <div className="relative col-span-6">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <CircleBackground color="#F39A43" className="animate-spin-slower" />
+          <CircleBackground color="#F4B400" className="animate-spin-slower" />
         </div>
         <PhoneFrame className="z-10 mx-auto w-full max-w-[366px]">
           <TabPanels as={Fragment}>
@@ -459,7 +453,6 @@ function FeaturesDesktop() {
     </TabGroup>
   )
 }
-
 
 function FeaturesMobile() {
   let [activeIndex, setActiveIndex] = useState(0)
@@ -509,24 +502,22 @@ function FeaturesMobile() {
             }}
             className="w-full flex-none snap-center px-4 sm:px-6"
           >
-            <div className="relative transform overflow-hidden rounded-2xl bg-[#FFF7EA] px-5 py-6"> {/* cream background */}
+            <div className="relative transform overflow-hidden rounded-2xl bg-[#FFFFFF] px-5 py-6"> {/* Surface white background */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <CircleBackground
-                  color="#F39A43"
+                  color="#F4B400"
                   className={featureIndex % 2 === 1 ? 'rotate-180' : undefined}
                 />
               </div>
               <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
                 <feature.screen />
               </PhoneFrame>
-              <div className="absolute inset-x-0 bottom-0 bg-[#F39A43]/10 p-6 backdrop-blur-sm sm:p-10">
-                <feature.icon className="h-8 w-8 text-[#F39A43]" />
-                <h3 className="mt-6 text-sm font-semibold text-[#834C13] sm:text-lg">
+              <div className="absolute inset-x-0 bottom-0 bg-[#F4B400]/10 p-6 backdrop-blur-sm sm:p-10">
+                <feature.icon className="h-8 w-8 text-[#F4B400]" />
+                <h3 className="mt-6 text-sm font-semibold text-[#1E293B] sm:text-lg">
                   {feature.name}
                 </h3>
-                <p className="mt-2 text-sm text-[#A57C23]">
-                  {feature.description}
-                </p>
+                <p className="mt-2 text-sm text-[#64748B]">{feature.description}</p>
               </div>
             </div>
           </div>
@@ -539,7 +530,7 @@ function FeaturesMobile() {
             key={featureIndex}
             className={clsx(
               'relative h-0.5 w-4 rounded-full',
-              featureIndex === activeIndex ? 'bg-[#F39A43]' : 'bg-[#C6A15A]',
+              featureIndex === activeIndex ? 'bg-[#F4B400]' : 'bg-[#64748B]',
             )}
             aria-label={`Go to slide ${featureIndex + 1}`}
             onClick={() => {
@@ -562,16 +553,14 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features of Vedik Sanskaar digital platform"
-      className="bg-white py-20 sm:py-32" // white background instead of dark brown
+      className="bg-[#FDF7F2] py-20 sm:py-32"
     >
       <Container>
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl text-[#834C13]">
-          {/* Dark orange/brown text color */}
-          <h2 className="text-3xl font-medium tracking-tight">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl text-[#1E293B]">
+          <h2 className="text-3xl font-medium tracking-tight text-[#4285F4]">
             Vedik Sanskaar: Sanatan Sanskriti ki digital sevaen
           </h2>
-          <p className="mt-2 text-lg text-[#F39A43]">
-            {/* Vedik orange for highlighted text */}
+          <p className="mt-2 text-lg text-[#F4B400]">
             Ek aisa digital platform jo apko parivar, ved, sanskar, aur dharmik sevaon se jude rakhata hai,
             jahan par vidwan pandit, jyotish aur mandir seva aapke haath me ho ghar baithe.
           </p>

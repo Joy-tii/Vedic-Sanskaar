@@ -13,8 +13,7 @@ const plans = [
     name: 'प्रारंभिक',
     featured: false,
     price: { Monthly: '₹0', Annually: '₹0' },
-    description:
-      'नवीन हैं, तो सही शुरुआत करें। निशुल्क योजना के साथ शुरू करें।',
+    description: 'नवीन हैं, तो सही शुरुआत करें। निशुल्क योजना के साथ शुरू करें।',
     button: {
       label: 'फ्री शुरुआत करें',
       href: '/register',
@@ -31,8 +30,7 @@ const plans = [
     name: 'निवेशक',
     featured: false,
     price: { Monthly: '₹500', Annually: '₹5,000' },
-    description:
-      'कुछ समय से निवेश कर रहे हैं, तेजी से धन बढ़ाएं।',
+    description: 'कुछ समय से निवेश कर रहे हैं, तेजी से धन बढ़ाएं।',
     button: {
       label: 'सब्सक्राइब करें',
       href: '/register',
@@ -50,8 +48,7 @@ const plans = [
     name: 'विशिष्ट सदस्य',
     featured: true,
     price: { Monthly: '₹14,000', Annually: '₹1,40,000' },
-    description:
-      'आपके बड़े संसाधनों के लिए, असीमित निवेश।',
+    description: 'आपके बड़े संसाधनों के लिए, असीमित निवेश।',
     button: {
       label: 'सब्सक्राइब करें',
       href: '/register',
@@ -99,37 +96,29 @@ function Plan({
   logomarkClassName,
   featured = false,
 }) {
-  // choose bg and text colors dynamically
-  const cardBg = featured 
-    ? "bg-[#F39A43]" 
-    : "bg-[#FFE0B2]"; // featured = rich dark orange, else pale orange-cream
-  const titleColor = featured ? "text-white" : "text-[#834C13]";
-  const priceColor = featured ? "text-white" : "text-[#2D1F12]";
-  const descColor = featured ? "text-[#FFF7EA]/80" : "text-[#A57C23]";
-  const listDivider = featured ? "divide-[#FFF7EA]/30" : "divide-[#F39A43]/20";
-  const listText = featured ? "text-[#FFF7EA]" : "text-[#834C13]";
-  const checkIcon = featured ? "text-white" : "text-[#F39A43]";
- const buttonBg = featured
-  ? "!bg-white !text-[#F39A43] hover:!bg-[#FFF7EA] !border !border-white shadow-md"
-  : "!bg-[#C67117] !text-white hover:!bg-[#A3560F] !border !border-transparent shadow-md";
+  // Determine if card should have white background (first two cards)
+  const isWhiteBg = name === 'प्रारंभिक' || name === 'निवेशक'
+  const cardBg = !featured && isWhiteBg ? 'bg-white' : featured ? 'bg-[#F39A43]' : 'bg-[#FFE0B2]'
+  const titleColor = featured ? 'text-white' : 'text-[#1E293B]'
+  const priceColor = featured ? 'text-white' : 'text-[#1E293B]'
+  const descColor = featured ? 'text-[#FFF7EA]/80' : 'text-[#64748B]'
+  const listDivider = featured ? 'divide-[#FFF7EA]/30' : 'divide-[#E2E8F0]'
+  const listText = featured ? 'text-[#FFF7EA]' : 'text-[#1E293B]'
+  const checkIcon = featured ? 'text-white' : 'text-[#F4B400]'
+  const buttonBg = featured
+    ? '!bg-white !text-[#F39A43] hover:!bg-[#FFF7EA] !border !border-white shadow-md'
+    : '!bg-[#4285F4] !text-white hover:!bg-[#2D59C3] !border !border-transparent shadow-md'
 
+  // Fix icon fill color for featured card for visibility
+  const iconFillClass = featured ? 'fill-white' : logomarkClassName
 
   return (
-    <section className={clsx(
-      'flex flex-col overflow-hidden rounded-3xl p-6 shadow-lg',
-      cardBg
-    )}>
-      <h3 className={clsx(
-        'flex items-center text-sm font-semibold',
-        titleColor
-      )}>
-        <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
+    <section className={clsx('flex flex-col overflow-hidden rounded-3xl p-6 shadow-lg', cardBg)}>
+      <h3 className={clsx('flex items-center text-sm font-semibold', titleColor)}>
+        <Logomark className={clsx('h-6 w-6 flex-none', iconFillClass)} />
         <span className="ml-4">{name}</span>
       </h3>
-      <p className={clsx(
-        'relative mt-5 flex text-3xl tracking-tight',
-        priceColor
-      )}>
+      <p className={clsx('relative mt-5 flex text-3xl tracking-tight', priceColor)}>
         {price.Monthly === price.Annually ? (
           price.Monthly
         ) : (
@@ -149,17 +138,9 @@ function Plan({
           </>
         )}
       </p>
-      <p className={clsx(
-        'mt-3 text-sm',
-        descColor
-      )}>
-        {description}
-      </p>
+      <p className={clsx('mt-3 text-sm', descColor)}>{description}</p>
       <div className="order-last mt-6">
-        <ul
-          role="list"
-          className={clsx('-my-2 divide-y text-sm', listDivider, listText)}
-        >
+        <ul role="list" className={clsx('-my-2 divide-y text-sm', listDivider, listText)}>
           {features.map((feature) => (
             <li key={feature} className="flex py-2">
               <CheckIcon className={clsx('h-6 w-6 flex-none', checkIcon)} />
@@ -169,50 +150,34 @@ function Plan({
         </ul>
       </div>
       <Button
-  href={button.href}
-  className={clsx(
-    "mt-6 font-semibold transition-transform duration-200 hover:scale-105",
-    buttonBg
-  )}
-
+        href={button.href}
+        className={clsx('mt-6 font-semibold transition-transform duration-200 hover:scale-105', buttonBg)}
         aria-label={`Get started with the ${name} plan for ${price.Monthly}`}
       >
         {button.label}
       </Button>
     </section>
-  );
+  )
 }
 
 export function Pricing() {
-  let [activePeriod, setActivePeriod] = useState('Monthly')
+  const [activePeriod, setActivePeriod] = useState('Monthly')
 
   return (
-    <section
-      id="pricing"
-      aria-labelledby="pricing-title"
-      className="border-t border-[#C6A15A] bg-[#FDF6E3] py-20 sm:py-32"
-    >
+    <section id="pricing" aria-labelledby="pricing-title" className="border-t border-[#E2E8F0] bg-[#FDF7F2] py-20 sm:py-32">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2
-            id="pricing-title"
-            className="text-3xl font-medium tracking-tight text-[#2D1F12]"
-          >
+          <h2 id="pricing-title" className="text-3xl font-medium tracking-tight text-[#1E293B]">
             पारंपरिक मूल्य निर्धारण, कोई प्रबंधन शुल्क नहीं।
           </h2>
-          <p className="mt-2 text-lg text-[#834C13]">
-            चाहे आप अकेले निवेशक हों या बड़ी संस्था,
-            हमारे पास आपके लिए उपयुक्त योजना है।
+          <p className="mt-2 text-lg text-[#64748B]">
+            चाहे आप अकेले निवेशक हों या बड़ी संस्था, हमारे पास आपके लिए उपयुक्त योजना है।
           </p>
         </div>
 
         <div className="mt-8 flex justify-center">
           <div className="relative">
-            <RadioGroup
-              value={activePeriod}
-              onChange={setActivePeriod}
-              className="grid grid-cols-2 rounded-lg bg-[#F39A43] p-1 text-white"
-            >
+            <RadioGroup value={activePeriod} onChange={setActivePeriod} className="grid grid-cols-2 rounded-lg bg-[#F4B400] p-1 text-white">
               {['Monthly', 'Annually'].map((period) => (
                 <Radio
                   key={period}
@@ -220,7 +185,7 @@ export function Pricing() {
                   className={clsx(
                     'cursor-pointer px-5 py-2 text-center font-semibold',
                     period === 'Monthly' ? 'rounded-l-lg' : 'rounded-r-lg',
-                    activePeriod === period ? 'bg-[#2D1F12]' : 'opacity-70',
+                    activePeriod === period ? 'bg-[#1E293B]' : 'opacity-70'
                   )}
                 >
                   {period}

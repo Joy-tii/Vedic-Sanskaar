@@ -54,27 +54,26 @@ const faqs = [
   ],
 ]
 
-
 export function Faqs() {
   return (
     <section
       id="faqs"
       aria-labelledby="faqs-title"
-      className="border-t border-gray-200 py-20 sm:py-32"
+      className="border-t border-[#E2E8F0] py-20 sm:py-32 bg-[#FDF7F2]" // Soft beige background, light gray border
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2
             id="faqs-title"
-            className="text-3xl font-medium tracking-tight text-gray-900"
+            className="text-3xl font-medium tracking-tight text-[#1E293B]" // Dark slate color
           >
             Frequently asked questions
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
+          <p className="mt-2 text-lg text-[#64748B]"> {/* Muted gray blue */}
             If you have anything else you want to ask,{' '}
             <a
               href="mailto:info@example.com"
-              className="text-gray-900 underline"
+              className="text-[#1E293B] underline" // Dark slate link with underline
             >
               reach out to us
             </a>
@@ -90,10 +89,12 @@ export function Faqs() {
               <ul role="list" className="space-y-10">
                 {column.map((faq, faqIndex) => (
                   <li key={faqIndex}>
-                    <h3 className="text-lg/6 font-semibold text-gray-900">
+                    <h3 className="text-lg/6 font-semibold text-[#1E293B]"> {/* Dark slate */}
                       {faq.question}
                     </h3>
-                    <p className="mt-4 text-sm text-gray-700">{faq.answer}</p>
+                    <p className="mt-4 text-sm text-[#64748B]"> {/* Muted gray blue */}
+                      {faq.answer}
+                    </p>
                   </li>
                 ))}
               </ul>

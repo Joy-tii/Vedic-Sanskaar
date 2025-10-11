@@ -30,8 +30,8 @@ function BackgroundIllustration(props) {
       >
         <path
           d="M1025 513c0 282.77-229.23 512-512 512S1 795.77 1 513 230.23 1 513 1s512 229.23 512 512Z"
-          stroke="#FFFFFF"
-          strokeOpacity="0.3"
+          stroke="var(--color-border)"
+          strokeOpacity="0.4"
         />
         <path
           d="M513 1025C230.23 1025 1 795.77 1 513"
@@ -47,8 +47,8 @@ function BackgroundIllustration(props) {
             y2="1025"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#FFFFFF" />
-            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
+            <stop stopColor="var(--color-primary)" />
+            <stop offset="1" stopColor="var(--color-primary)" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -62,7 +62,7 @@ function BackgroundIllustration(props) {
       >
         <path
           d="M913 513c0 220.914-179.086 400-400 400S113 733.914 113 513s179.086-400 400-400 400 179.086 400 400Z"
-          stroke="#FFFFFF"
+          stroke="var(--color-border)"
           strokeOpacity="0.25"
         />
         <path
@@ -79,8 +79,8 @@ function BackgroundIllustration(props) {
             y2="913"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#FFFFFF" />
-            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
+            <stop stopColor="var(--color-secondary)" />
+            <stop offset="1" stopColor="var(--color-secondary)" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -88,54 +88,54 @@ function BackgroundIllustration(props) {
   )
 }
 
-
 function PlayIcon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <circle cx="12" cy="12" r="11.5" stroke="#834C13" /> {/* Vedik dark brown stroke */}
+      <circle cx="12" cy="12" r="11.5" stroke="var(--color-secondary)" />
       <path
         d="M9.5 14.382V9.618a.5.5 0 0 1 .724-.447l4.764 2.382a.5.5 0 0 1 0 .894l-4.764 2.382a.5.5 0 0 1-.724-.447Z"
-        fill="#fff"   // Vedik orange fill
-        stroke="#F39A43" // Vedik orange stroke
+        fill="var(--color-surface)"
+        stroke="var(--color-primary)"
       />
     </svg>
   )
 }
 
-
 export function Hero() {
   return (
-    <div className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36">
+    <div className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36 bg-[var(--color-background)]">
       <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
+          {/* ✅ Left Text Section */}
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-            <h1 className="text-4xl font-medium tracking-tight text-gray-900">
+            <h1 className="text-4xl font-medium tracking-tight text-[var(--color-text-primary)]">
               सनातन संस्कृति और परंपरा, अब तकनीक के साथ!
             </h1>
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-6 text-lg text-[var(--color-text-secondary)]">
               अब वेद, शास्त्र, संस्कार, पूजा, ज्योतिष, और धार्मिक सेवाएँ, सबकुछ एक डिजिटल छत के नीचे। अनुभवी ब्राह्मणों और विद्वानों से जुड़िए और पूरी पारदर्शिता के साथ घर बैठे सनातन सेवाएँ पाइए।
             </p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
               <AppStoreLink />
-              <Button
-                href="#"
-                variant="outline"
-              >
+              <Button href="#" variant="outline" className="border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-surface)] transition-all">
                 <PlayIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2.5">वीडियो देखें</span>
               </Button>
             </div>
           </div>
+
+          {/* ✅ Phone Demo */}
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
-            <BackgroundIllustration className="absolute top-4 left-1/2 h-[1026px] w-[1026px] -translate-x-1/3 mask-[linear-gradient(to_bottom,white_20%,transparent_75%)] stroke-gray-300/70 sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
+            <BackgroundIllustration className="absolute top-4 left-1/2 h-[1026px] w-[1026px] -translate-x-1/3 mask-[linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
             <div className="-mx-4 h-[448px] mask-[linear-gradient(to_bottom,white_60%,transparent)] px-9 sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
               <PhoneFrame className="mx-auto max-w-[366px]" priority>
                 <AppDemo />
               </PhoneFrame>
             </div>
           </div>
+
+          {/* ✅ Logos Section */}
           <div className="relative -mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
-            <p className="text-center text-sm font-semibold text-gray-900 lg:text-left">
+            <p className="text-center text-sm font-semibold text-[var(--color-text-primary)] lg:text-left">
               हमारी प्रमाणिक सेवाएँ और नवाचार
             </p>
             <ul

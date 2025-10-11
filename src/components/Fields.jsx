@@ -2,13 +2,13 @@ import { useId } from 'react'
 import clsx from 'clsx'
 
 const baseInputStyles =
-  'block w-full rounded-lg px-4 py-2 text-[#2D1F12] placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#F39A43] transition-all duration-200'
+  'block w-full rounded-lg px-4 py-2 text-[#1E293B] placeholder:text-[#64748B] border border-[#E2E8F0] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F4B400] transition-colors duration-200 bg-[#FDF7F2] focus:bg-[#FFFFFF]'
 
 function Label({ id, children }) {
   return (
     <label
       htmlFor={id}
-      className="mb-2 block text-sm font-semibold text-gray-900"
+      className="mb-2 block text-sm font-semibold text-[#1E293B]"
     >
       {children}
     </label>
@@ -25,11 +25,7 @@ export function TextField({ label, type = 'text', className, ...props }) {
         id={id}
         type={type}
         {...props}
-        className={clsx(
-          baseInputStyles,
-          'bg-[#FFF3E6] focus:bg-white shadow-none border-none outline-none',
-          className
-        )}
+        className={clsx(baseInputStyles, className)}
       />
     </div>
   )
@@ -46,7 +42,7 @@ export function SelectField({ label, className, ...props }) {
         {...props}
         className={clsx(
           baseInputStyles,
-          'bg-[#FFF3E6] pr-8 focus:bg-white shadow-none border-none outline-none',
+          'pr-8',
           className
         )}
       />
